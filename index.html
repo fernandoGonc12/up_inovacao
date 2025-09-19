@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP - Inovação Tecnológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Documentação: Reset básico e variáveis de cores */
+        :root {
+            --cor-primaria: #007BFF; /* Azul vibrante, inspirado no seu logo */
+            --cor-fundo: #0c0c0c;     /* Fundo preto/cinza escuro */
+            --cor-texto: #f4f4f4;      /* Texto principal (branco suave) */
+            --cor-texto-secundario: #a9a9a9; /* Texto secundário (cinza claro) */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Habilita a rolagem suave nativa do navegador */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+
+        /* Documentação: Estilo do Cabeçalho e Navegação */
+        .header {
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            max-height: 40px; /* Ajuste a altura do seu logo */
+        }
+
+        .nav-menu a {
+            color: var(--cor-texto);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* Documentação: Estilo das Seções */
+        .section {
+            padding: 100px 5%;
+            min-height: 100vh; /* Faz com que cada seção ocupe a tela inteira */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .section h1, .section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            color: var(--cor-texto-secundario);
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: var(--cor-primaria);
+        }
+
+        /* Documentação: Estilo dos Botões (Call to Action) */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+        }
+        
+        /* Documentação: Estilos específicos para a seção de serviços */
+        .servicos-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .servico-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            border: 1px solid #222;
+            transition: transform 0.3s ease;
+        }
+
+        .servico-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cor-primaria);
+        }
+        
+        .servico-card h3 {
+            color: var(--cor-primaria);
+            margin-bottom: 15px;
+        }
+
+        /* Documentação: Estilo do Rodapé */
+        .footer {
+            padding: 40px 5%;
+            text-align: center;
+            background-color: #000;
+        }
+
+    </style>
+    </head>
+<body>
+
+    <header class="header">
+        <a href="#inicio">
+            <img src="images/up-logo2.png" alt="Logo UP Inovação Tecnológica" class="logo">
+        </a>
+        <nav class="nav-menu">
+            <a href="#servicos">Serviços</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="section">
+        <h1>Inovação e Tecnologia para <span class="highlight">Impulsionar</span> seu Negócio</h1>
+        <p>Desenvolvemos soluções digitais personalizadas que transformam desafios em oportunidades de crescimento.</p>
+        <a href="#servicos" class="cta-button">Conheça Nossas Soluções</a>
+    </section>
+
+    <section id="servicos" class="section">
+        <h2>Nossos <span class="highlight">Serviços</span></h2>
+        <p>Oferecemos um portfólio completo de serviços para atender às necessidades tecnológicas da sua empresa.</p>
+        <div class="servicos-container">
+            <div class="servico-card">
+                <h3>Desenvolvimento de Software</h3>
+                <p>Criação de sistemas web e aplicativos mobile sob medida para otimizar seus processos.</p>
+            </div>
+            <div class="servico-card">
+                <h3>Consultoria em TI</h3>
+                <p>Análise e estratégia para melhorar sua infraestrutura tecnológica e garantir segurança e eficiência.</p>
+            </div>
+            <div class="servico-card">
+                <h3>Marketing Digital</h3>
+                <p>Estratégias de SEO, gestão de mídias sociais e campanhas para aumentar sua presença online.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section">
+        <h2>Sobre a <span class="highlight">UP</span></h2>
+        <p>Nascemos da paixão por tecnologia e do desejo de ajudar empresas a alcançarem seu máximo potencial. Nossa missão é entregar soluções inovadoras com excelência, transparência e parceria, construindo um caminho de sucesso junto aos nossos clientes.</p>
+    </section>
+
+    <section id="contato" class="section">
+        <h2>Vamos <span class="highlight">Conversar?</span></h2>
+        <p>Estamos prontos para entender seu desafio e propor a melhor solução. Entre em contato e vamos juntos construir o futuro do seu negócio.</p>
+        <a href="mailto:fer4br@gmail.com" class="cta-button">Enviar um E-mail</a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 UP - Inovação Tecnológica. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Documentação: Este script melhora a compatibilidade da rolagem suave.
+        // Ele garante que o clique nos links do menu leve o usuário à seção correta
+        // com uma animação suave em todos os navegadores.
+
+        // 1. Seleciona todos os links do menu que começam com '#'
+        const menuLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+        function smoothScrollTo(event) {
+            // 2. Previne o comportamento padrão do link (que seria um pulo brusco)
+            event.preventDefault();
+            
+            // 3. Pega o ID da seção de destino (ex: '#servicos') a partir do link clicado
+            const targetId = this.getAttribute('href');
+            
+            // 4. Encontra o elemento da seção no documento
+            const targetSection = document.querySelector(targetId);
+            
+            // 5. Usa a API do navegador para rolar suavemente até a seção
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Alinha o topo da seção com o topo da tela
+                });
+            }
+        }
+
+        // 6. Adiciona o evento de clique para cada link do menu
+        menuLinks.forEach(link => {
+            link.addEventListener('click', smoothScrollTo);
+        });
+    </script>
+    </body>
+</html>
