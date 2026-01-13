@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalIcon = modal ? modal.querySelector('.modal-icon') : null;
     const modalClose = modal ? modal.querySelector('.modal-close') : null;
 
+    let lastFocusedElement = null;
+
     function openModalFromCard(card) {
         if (!modal) return;
         const title = card.getAttribute('data-title') || card.querySelector('h3')?.innerText || '';
@@ -59,6 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDesc) modalDesc.textContent = desc;
         if (modalIcon) modalIcon.textContent = icon;
 
+        // remember who had focus so we can restore it on close
+        lastFocusedElement = document.activeElement || card;
+
+        // make modal focusable and interactive
+        if ('inert' in modal) modal.inert = false;
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         // small delay for transition
@@ -69,9 +76,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeModal() {
         if (!modal) return;
+        // restore focus to the element that opened the modal (if present)
+        try {
+            if (lastFocusedElement && lastFocusedElement.focus && document.contains(lastFocusedElement)) {
+                lastFocusedElement.focus();
+            } else {
+                // move focus to body as a safe fallback
+                document.body.focus();
+            }
+        } catch (err) {
+            // ignore focus errors
+        }
+
         modal.classList.remove('open');
+        // ensure focus is moved before hiding from AT
         modal.setAttribute('aria-hidden', 'true');
+        // make modal inert so it cannot receive focus
+        if ('inert' in modal) modal.inert = true;
         document.body.style.overflow = '';
+        lastFocusedElement = null;
     }
 
     serviceCards.forEach(card => {
