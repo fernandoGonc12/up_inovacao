@@ -1,0 +1,216 @@
+/* Documentação: Reset básico e variáveis de cores */
+:root {
+    --cor-primaria: #007BFF;
+    /* Azul vibrante, inspirado no seu logo */
+    --cor-fundo: #0c0c0c;
+    /* Fundo preto/cinza escuro */
+    --cor-texto: #f4f4f4;
+    /* Texto principal (branco suave) */
+    --cor-texto-secundario: #a9a9a9;
+    /* Texto secundário (cinza claro) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Habilita a rolagem suave nativa do navegador */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* Documentação: Estilo do Cabeçalho e Navegação */
+.header {
+    background-color: rgba(12, 12, 12, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    max-height: 40px;
+    /* Ajuste a altura do seu logo */
+}
+
+.nav-menu a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--cor-primaria);
+}
+
+/* Documentação: Estilo das Seções */
+.section {
+    padding: 100px 5%;
+    min-height: 100vh;
+    /* Faz com que cada seção ocupe a tela inteira */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+.section h1,
+.section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+}
+
+.highlight {
+    color: var(--cor-primaria);
+}
+
+/* Documentação: Estilo dos Botões (Call to Action) */
+.cta-button {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cta-button-green {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+}
+
+/* Documentação: Estilos específicos para a seção de serviços */
+.servicos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.servico-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    border: 1px solid #222;
+    transition: transform 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cor-primaria);
+}
+
+.servico-card h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+/* Documentação: Estilo do Rodapé */
+.footer {
+    padding: 40px 5%;
+    text-align: center;
+    background-color: #000;
+}
+
+/* Splash overlay and animations */
+#splash {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    animation: overlayFade 1s ease forwards;
+}
+
+.splash-inner {
+    text-align: center;
+}
+
+.splash-logo {
+    width: 320px;
+    max-width: 60%;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: logoAnim 1s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.45));
+}
+
+@keyframes logoAnim {
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes overlayFade {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* Content reveal after splash */
+#main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#main-content.content-visible {
+    opacity: 1;
+}
