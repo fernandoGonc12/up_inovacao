@@ -224,6 +224,8 @@ body {
     justify-content: center;
     z-index: 3000;
     pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0s linear 0.3s;
 }
 
 .service-modal .service-modal-overlay {
@@ -286,6 +288,8 @@ body {
 
 .service-modal.open {
     pointer-events: auto;
+    visibility: visible;
+    transition-delay: 0s;
 }
 
 .service-modal.open .service-modal-overlay {

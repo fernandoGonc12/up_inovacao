@@ -48,6 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDesc = modal ? modal.querySelector('.modal-desc') : null;
     const modalIcon = modal ? modal.querySelector('.modal-icon') : null;
     const modalClose = modal ? modal.querySelector('.modal-close') : null;
+    const modalCta = modal ? modal.querySelector('.modal-cta') : null;
+
+    if (modalCta) {
+        modalCta.addEventListener('click', () => {
+            closeModal();
+        });
+    }
 
     let lastFocusedElement = null;
 
