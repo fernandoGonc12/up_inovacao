@@ -214,3 +214,109 @@ body {
 #main-content.content-visible {
     opacity: 1;
 }
+
+/* Service modal styles */
+.service-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    pointer-events: none;
+}
+
+.service-modal .service-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 250ms ease;
+}
+
+.service-modal .service-modal-card {
+    position: relative;
+    background: linear-gradient(180deg, #0f0f0f, #121212);
+    color: var(--cor-texto);
+    width: 720px;
+    max-width: 92%;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+    transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease;
+    z-index: 1;
+}
+
+.service-modal .modal-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.service-modal .modal-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--cor-primaria);
+}
+
+.service-modal .modal-desc {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.service-modal .modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.service-modal .modal-close {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    background: transparent;
+    color: var(--cor-texto);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.service-modal.open {
+    pointer-events: auto;
+}
+
+.service-modal.open .service-modal-overlay {
+    opacity: 1;
+}
+
+.service-modal.open .service-modal-card {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .service-modal .service-modal-card {
+        padding: 18px;
+    }
+    .service-modal .modal-icon { font-size: 38px; }
+}
+
+.separator-arrow {
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
