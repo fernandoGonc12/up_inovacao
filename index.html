@@ -6,11 +6,10 @@
     <title>UP - Inovação Tecnológica</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    </head>
+</head>
 <body>
-    <!-- Splash overlay shown on entry -->
     <div id="splash" aria-hidden="false" role="dialog">
         <div class="splash-inner">
             <img src="images/up-logo2.png" alt="UP Inovação Tecnológica" class="splash-logo">
@@ -30,46 +29,79 @@
         </nav>
     </header>
 
-    <section id="inicio" class="section" style="position: relative; overflow: hidden;">
-        <video autoplay muted loop class="background-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(5px); z-index: -1;">
-            <source src="videos/7020018_Particle_Dot_1280x720.mp4" type="video/mp4">
-            Seu navegador não suporta a reprodução de vídeos.
-        </video>
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
-        <h1 style="position: relative; z-index: 1;">Inovação e Tecnologia para <span class="highlight">Impulsionar</span> seu Negócio</h1>
-        <p style="position: relative; z-index: 1;">Desenvolvemos soluções digitais personalizadas que transformam desafios em oportunidades de crescimento.</p>
-        <a href="#servicos" class="cta-button" style="position: relative; z-index: 1;">Conheça Nossas Soluções</a>
-        <img src="images/down-arrow.svg" alt="Seta para baixo" class="separator-arrow" style="width: 80px; height: auto; position: absolute; bottom: 20px; z-index: 1;">
+    <section id="inicio" class="section hero-section">
+        <h1>Inovação e Tecnologia para <span class="highlight">Impulsionar</span> seu Negócio</h1>
+        <p>Desenvolvemos soluções digitais personalizadas que transformam desafios em oportunidades de crescimento.</p>
+        <a href="#servicos" class="cta-button">Conheça Nossas Soluções</a>
+        <img src="images/down-arrow.svg" alt="" aria-hidden="true" class="separator-arrow">
     </section>
 
-    <div class="separator" style="text-align: center;">
-        <hr style="border: none; height: 4px; background-color: #007bff;">
-    </div>
+    <div class="separator" aria-hidden="true"></div>
 
     <section id="servicos" class="section">
         <h2>Nossos <span class="highlight">Serviços</span></h2>
         <p>Oferecemos um portfólio completo de serviços para atender às necessidades tecnológicas da sua empresa.</p>
         <div class="servicos-container">
-            <div class="servico-card" data-icon="💻" data-title="Desenvolvimento de Software" data-desc="Criação de sistemas web e aplicativos mobile sob medida para otimizar seus processos.">
-                <icon class="servico-icon">💻</icon>
+
+            <div class="servico-card" role="button" tabindex="0"
+                 data-title="Desenvolvimento de Software"
+                 data-desc="Criação de sistemas web e aplicativos mobile sob medida para otimizar seus processos.">
+                <div class="servico-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                </div>
                 <h3>Desenvolvimento de Software</h3>
                 <p>Criação de sistemas web e aplicativos mobile sob medida para otimizar seus processos.</p>
             </div>
-            <div class="servico-card" data-icon="🤖" data-title="Modelos de IA Personalizados" data-desc="Desenvolvimento de modelos de inteligência artificial sob medida para atender às necessidades específicas do seu negócio.">
-                <icon class="servico-icon">🤖</icon>
+
+            <div class="servico-card" role="button" tabindex="0"
+                 data-title="Modelos de IA Personalizados"
+                 data-desc="Desenvolvimento de modelos de inteligência artificial sob medida para atender às necessidades específicas do seu negócio.">
+                <div class="servico-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <rect x="9" y="9" width="6" height="6"/>
+                        <path d="M15 2v2"/><path d="M15 20v2"/>
+                        <path d="M9 2v2"/><path d="M9 20v2"/>
+                        <path d="M2 15h2"/><path d="M20 15h2"/>
+                        <path d="M2 9h2"/><path d="M20 9h2"/>
+                    </svg>
+                </div>
                 <h3>Criação de modelos de IA personalizados</h3>
                 <p>Desenvolvimento de modelos de inteligência artificial sob medida para atender às necessidades específicas do seu negócio.</p>
             </div>
-            <div class="servico-card" data-icon="🌐" data-title="Consultoria em TI" data-desc="Análise e estratégia para melhorar sua infraestrutura tecnológica e garantir segurança e eficiência.">
-                <icon class="servico-icon">🌐</icon>
+
+            <div class="servico-card" role="button" tabindex="0"
+                 data-title="Consultoria em TI"
+                 data-desc="Análise e estratégia para melhorar sua infraestrutura tecnológica e garantir segurança e eficiência.">
+                <div class="servico-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
                 <h3>Consultoria em TI</h3>
                 <p>Análise e estratégia para melhorar sua infraestrutura tecnológica e garantir segurança e eficiência.</p>
             </div>
-            <div class="servico-card" data-icon="📝" data-title="Criação de Conteúdo" data-desc="Criação de conteúdo visual e textual para campanhas de marketing e divulgação.">
-                <icon class="servico-icon">📝</icon>
+
+            <div class="servico-card" role="button" tabindex="0"
+                 data-title="Criação de Conteúdo"
+                 data-desc="Criação de conteúdo visual e textual para campanhas de marketing e divulgação.">
+                <div class="servico-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <line x1="10" y1="9" x2="8" y2="9"/>
+                    </svg>
+                </div>
                 <h3>Criação de Conteúdo</h3>
                 <p>Criação de conteúdo visual e textual para campanhas de marketing e divulgação.</p>
             </div>
+
         </div>
     </section>
 
@@ -82,8 +114,12 @@
         <h2>Vamos <span class="highlight">Conversar?</span></h2>
         <p>Estamos prontos para entender seu desafio e propor a melhor solução. Entre em contato e vamos juntos construir o futuro do seu negócio.</p>
         <div class="contact-buttons">
-            <!-- <a href="mailto:fer4br@gmail.com" class="cta-button">Enviar um E-mail</a> -->
-            <a href="https://wa.me/5567992641136" class="cta-button-green">Enviar um WhatsApp</a>
+            <a href="https://wa.me/5567992641136?text=Ol%C3%A1%2C+vim+pelo+site+da+UP+e+gostaria+de+saber+mais+sobre+os+servi%C3%A7os" class="cta-button-whatsapp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
+                </svg>
+                Falar no WhatsApp
+            </a>
         </div>
     </section>
 
@@ -94,9 +130,14 @@
 
     <!-- Service modal (hidden until opened) -->
     <div id="service-modal" class="service-modal" aria-hidden="true" inert>
-    <div class="service-modal-overlay" data-close="true"></div>
+        <div class="service-modal-overlay" data-close="true"></div>
         <div class="service-modal-card" role="dialog" aria-modal="true">
-            <button class="modal-close" aria-label="Fechar">×</button>
+            <button class="modal-close" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
             <div class="modal-icon" aria-hidden="true"></div>
             <h3 class="modal-title"></h3>
             <p class="modal-desc"></p>
@@ -107,5 +148,5 @@
     </div>
 
     <script src="scripts/index.js"></script>
-    </body>
+</body>
 </html>

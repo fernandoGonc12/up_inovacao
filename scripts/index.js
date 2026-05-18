@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const main = document.getElementById('main-content');
 
     if (splash) {
-        // When the overlay's fade animation ends, remove it and reveal content
         splash.addEventListener('animationend', (e) => {
             if (e.animationName === 'overlayFade') {
-                if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
-                if (main) main.classList.add('content-visible');
+                splash.parentNode?.removeChild(splash);
+                main?.classList.add('content-visible');
             }
         });
 
@@ -15,102 +14,79 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             if (document.body.contains(splash)) {
                 splash.parentNode.removeChild(splash);
-                if (main) main.classList.add('content-visible');
+                main?.classList.add('content-visible');
             }
         }, 2400);
     }
 
-    // Smooth scroll behavior for nav links
-    const menuLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-
-    function smoothScrollTo(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }
-
-    menuLinks.forEach(link => {
-        link.addEventListener('click', smoothScrollTo);
+    // Smooth scroll for anchor nav links
+    document.querySelectorAll('.nav-menu a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href'))
+                ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     });
 
-    // Service card modal behavior
-    const serviceCards = document.querySelectorAll('.servico-card');
-    const modal = document.getElementById('service-modal');
-    const modalOverlay = modal ? modal.querySelector('.service-modal-overlay') : null;
-    const modalCard = modal ? modal.querySelector('.service-modal-card') : null;
-    const modalTitle = modal ? modal.querySelector('.modal-title') : null;
-    const modalDesc = modal ? modal.querySelector('.modal-desc') : null;
-    const modalIcon = modal ? modal.querySelector('.modal-icon') : null;
-    const modalClose = modal ? modal.querySelector('.modal-close') : null;
-    const modalCta = modal ? modal.querySelector('.modal-cta') : null;
+    // Service card modal
+    const modal       = document.getElementById('service-modal');
+    const modalOverlay = modal?.querySelector('.service-modal-overlay');
+    const modalTitle  = modal?.querySelector('.modal-title');
+    const modalDesc   = modal?.querySelector('.modal-desc');
+    const modalIcon   = modal?.querySelector('.modal-icon');
+    const modalClose  = modal?.querySelector('.modal-close');
+    const modalCta    = modal?.querySelector('.modal-cta');
 
-    if (modalCta) {
-        modalCta.addEventListener('click', () => {
-            closeModal();
-        });
-    }
+    if (modalCta) modalCta.addEventListener('click', closeModal);
 
-    let lastFocusedElement = null;
+    let lastFocused = null;
 
-    function openModalFromCard(card) {
+    function openModal(card) {
         if (!modal) return;
-        const title = card.getAttribute('data-title') || card.querySelector('h3')?.innerText || '';
-        const desc = card.getAttribute('data-desc') || card.querySelector('p')?.innerText || '';
-        const icon = card.getAttribute('data-icon') || card.querySelector('.servico-icon')?.innerText || '';
+        const title   = card.getAttribute('data-title') || card.querySelector('h3')?.innerText || '';
+        const desc    = card.getAttribute('data-desc')  || card.querySelector('p')?.innerText  || '';
+        const iconEl  = card.querySelector('.servico-icon');
 
         if (modalTitle) modalTitle.textContent = title;
-        if (modalDesc) modalDesc.textContent = desc;
-        if (modalIcon) modalIcon.textContent = icon;
+        if (modalDesc)  modalDesc.textContent  = desc;
+        if (modalIcon && iconEl) modalIcon.innerHTML = iconEl.innerHTML;
 
-        // remember who had focus so we can restore it on close
-        lastFocusedElement = document.activeElement || card;
+        lastFocused = document.activeElement || card;
 
-        // make modal focusable and interactive
         if ('inert' in modal) modal.inert = false;
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-        // small delay for transition
         requestAnimationFrame(() => modal.classList.add('open'));
-        // focus close button for accessibility
-        if (modalClose) modalClose.focus();
+        modalClose?.focus();
     }
 
     function closeModal() {
         if (!modal) return;
-        // restore focus to the element that opened the modal (if present)
         try {
-            if (lastFocusedElement && lastFocusedElement.focus && document.contains(lastFocusedElement)) {
-                lastFocusedElement.focus();
-            } else {
-                // move focus to body as a safe fallback
-                document.body.focus();
+            if (lastFocused?.focus && document.contains(lastFocused)) {
+                lastFocused.focus();
             }
-        } catch (err) {
-            // ignore focus errors
-        }
+        } catch (_) {}
 
         modal.classList.remove('open');
-        // ensure focus is moved before hiding from AT
         modal.setAttribute('aria-hidden', 'true');
-        // make modal inert so it cannot receive focus
         if ('inert' in modal) modal.inert = true;
         document.body.style.overflow = '';
-        lastFocusedElement = null;
+        lastFocused = null;
     }
 
-    serviceCards.forEach(card => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', () => openModalFromCard(card));
+    document.querySelectorAll('.servico-card').forEach(card => {
+        card.addEventListener('click', () => openModal(card));
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal(card);
+            }
+        });
     });
 
     if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
-    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalClose)   modalClose.addEventListener('click', closeModal);
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
