@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato — Agende um diagnóstico gratuito | UP Inovação Tecnológica</title>
+    <meta name="description" content="Agende uma reunião de diagnóstico gratuita com a UP. 60 minutos para mapear seu processo e identificar onde a tecnologia pode ajudar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html">
+            <img src="images/up-logo2.png" alt="Logo UP Inovação Tecnológica" class="logo">
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html#servicos">Serviços</a>
+            <a href="index.html#processo">Como trabalhamos</a>
+            <a href="#form-contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <span class="hero-badge">Campo Grande / MS · Centro-Oeste</span>
+        <h1>Agende um <span class="highlight">diagnóstico gratuito</span></h1>
+        <p>60 minutos para entender seu processo, identificar os gargalos e dizer honestamente se a UP pode ajudar — e qual seria o caminho.</p>
+    </section>
+
+    <!-- FORMULÁRIO + CANAIS -->
+    <section id="form-contato" class="section section-alt">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <h2>Preencha o formulário</h2>
+                <p>Respondemos em até 1 dia útil com uma proposta de horário para a conversa.</p>
+            </div>
+            <!--
+                FORMULÁRIO: para ativar o envio de e-mail:
+                1. Crie conta gratuita em formspree.io
+                2. Clique em "+ New Form" e copie o endpoint gerado
+                3. Substitua {{ FORMSPREE_ID }} pelo ID (ex: xpwqabcd)
+            -->
+            <form class="form-diagnostico" action="https://formspree.io/f/{{ FORMSPREE_ID }}" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" required placeholder="Razão social ou nome fantasia">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(67) 9 0000-0000">
+                    </div>
+                    <div class="form-group form-group--full">
+                        <label for="desafio">Principal desafio hoje</label>
+                        <textarea id="desafio" name="desafio" rows="4" required placeholder="Descreva em poucas palavras o maior problema que a tecnologia poderia resolver na sua operação..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="cta-button form-submit">Agendar diagnóstico gratuito</button>
+                <p class="form-nota">Respondemos em até 1 dia útil. Sem compromisso.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- CANAIS ALTERNATIVOS -->
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <h2>Prefere falar <span class="highlight">diretamente?</span></h2>
+            </div>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <div class="feature-check" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+                    </div>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <p><a href="https://wa.me/5567992641136?text=Ol%C3%A1%2C+vim+pelo+site+da+UP+e+gostaria+de+agendar+um+diagn%C3%B3stico+gratuito" target="_blank" rel="noopener noreferrer" style="color: var(--cor-primaria);">+55 (67) 99264-1136</a> — resposta geralmente em menos de 2 horas em dias úteis.</p>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-check" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                        <strong>E-mail</strong>
+                        <p><a href="mailto:{{ EMAIL }}" style="color: var(--cor-primaria);">{{ EMAIL }}</a> — respondemos em até 1 dia útil.</p>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <div class="feature-check" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <strong>Localização</strong>
+                        <p>{{ ENDEREÇO }}, Campo Grande/MS.<br>Atendimento presencial com agendamento prévio.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="images/up-logo2.png" alt="UP Inovação Tecnológica" class="footer-logo">
+                <p>Sistemas de gestão e integrações sob medida para distribuidoras e indústrias do Centro-Oeste.</p>
+            </div>
+            <div class="footer-info">
+                <span class="footer-label">Contato</span>
+                <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a>
+                <a href="https://wa.me/5567992641136" target="_blank" rel="noopener noreferrer">+55 (67) 99264-1136</a>
+                <address>{{ ENDEREÇO }}<br>Campo Grande / MS</address>
+                <p>CNPJ: {{ CNPJ }}</p>
+            </div>
+            <nav class="footer-nav" aria-label="Links institucionais">
+                <span class="footer-label">Institucional</span>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="termos.html">Termos de Uso</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 UP Inovação Tecnológica. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
