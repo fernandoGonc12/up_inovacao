@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso — UP Inovação Tecnológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 120px 5% 80px;
+            text-align: left;
+        }
+        .page-content h1 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 8px;
+        }
+        .page-content .data-atualizacao {
+            font-size: 0.82rem;
+            color: var(--cor-texto-secundario);
+            margin-bottom: 48px;
+        }
+        .page-content h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cor-texto);
+            margin-top: 36px;
+            margin-bottom: 10px;
+        }
+        .page-content p,
+        .page-content li {
+            font-size: 0.9rem;
+            color: var(--cor-texto-secundario);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .page-content ul {
+            padding-left: 20px;
+        }
+        .page-content a {
+            color: var(--cor-primaria);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="images/up-logo2.png" alt="Logo UP Inovação Tecnológica" class="logo">
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html#servicos">Serviços</a>
+            <a href="index.html#processo">Como trabalhamos</a>
+            <a href="index.html#diagnostico">Contato</a>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <h1>Termos de <span class="highlight">Uso</span></h1>
+        <p class="data-atualizacao">Última atualização: {{ DATA }}</p>
+
+        <p>Ao acessar e utilizar o site <strong>upinovacaotec.com.br</strong>, você concorda com os presentes Termos de Uso. Se não concordar com alguma condição, recomendamos que não utilize o site.</p>
+
+        <h2>1. Uso permitido</h2>
+        <p>Este site tem finalidade exclusivamente informacional e comercial. É permitido:</p>
+        <ul>
+            <li>Navegar, ler e compartilhar o conteúdo do site para fins pessoais</li>
+            <li>Entrar em contato por meio dos formulários e canais disponibilizados</li>
+        </ul>
+
+        <h2>2. Restrições</h2>
+        <p>É proibido:</p>
+        <ul>
+            <li>Reproduzir, copiar ou distribuir o conteúdo do site com fins comerciais sem autorização</li>
+            <li>Usar o site para qualquer atividade ilegal, fraudulenta ou que prejudique terceiros</li>
+            <li>Tentar acessar sistemas ou dados além do que está disponível publicamente</li>
+        </ul>
+
+        <h2>3. Propriedade intelectual</h2>
+        <p>Todo o conteúdo deste site — textos, logotipo, imagens e código — é de propriedade da UP Inovação Tecnológica ou licenciado a ela. O uso não autorizado está sujeito às penalidades previstas na legislação brasileira.</p>
+
+        <h2>4. Links externos</h2>
+        <p>Este site pode conter links para sites de terceiros. A UP não se responsabiliza pelo conteúdo, políticas de privacidade ou práticas de qualquer site externo.</p>
+
+        <h2>5. Disponibilidade do serviço</h2>
+        <p>A UP não garante que o site estará disponível de forma ininterrupta. Manutenções programadas ou imprevistos técnicos podem causar indisponibilidades temporárias, sem gerar qualquer direito de indenização.</p>
+
+        <h2>6. Limitação de responsabilidade</h2>
+        <p>As informações deste site têm caráter informativo geral. Cada projeto é avaliado individualmente e as condições apresentadas podem variar. A UP não se responsabiliza por decisões tomadas com base exclusivamente no conteúdo do site sem consulta direta à equipe.</p>
+
+        <h2>7. Legislação aplicável</h2>
+        <p>Estes termos são regidos pela legislação brasileira. Fica eleito o foro da Comarca de Campo Grande/MS para dirimir eventuais disputas.</p>
+
+        <h2>8. Contato</h2>
+        <p>Dúvidas sobre estes termos: <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a></p>
+
+        <p>{{ AVISO: Este documento é um rascunho inicial. Recomenda-se revisão por advogado antes de publicar. }}</p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 UP Inovação Tecnológica. <a href="index.html" style="color: var(--cor-primaria);">← Voltar ao site</a></p>
+        </div>
+    </footer>
+</body>
+</html>

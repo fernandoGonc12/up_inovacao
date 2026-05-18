@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade — UP Inovação Tecnológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 120px 5% 80px;
+            text-align: left;
+        }
+        .page-content h1 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 8px;
+        }
+        .page-content .data-atualizacao {
+            font-size: 0.82rem;
+            color: var(--cor-texto-secundario);
+            margin-bottom: 48px;
+        }
+        .page-content h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cor-texto);
+            margin-top: 36px;
+            margin-bottom: 10px;
+        }
+        .page-content p,
+        .page-content li {
+            font-size: 0.9rem;
+            color: var(--cor-texto-secundario);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .page-content ul {
+            padding-left: 20px;
+        }
+        .page-content a {
+            color: var(--cor-primaria);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="images/up-logo2.png" alt="Logo UP Inovação Tecnológica" class="logo">
+        </a>
+        <nav class="nav-menu">
+            <a href="index.html#servicos">Serviços</a>
+            <a href="index.html#processo">Como trabalhamos</a>
+            <a href="index.html#diagnostico">Contato</a>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <h1>Política de <span class="highlight">Privacidade</span></h1>
+        <p class="data-atualizacao">Última atualização: {{ DATA }}</p>
+
+        <p>A UP Inovação Tecnológica ("UP", "nós") respeita sua privacidade e está comprometida com a proteção dos dados pessoais que você nos fornece, em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018).</p>
+
+        <h2>1. Quais dados coletamos</h2>
+        <p>Coletamos apenas os dados fornecidos voluntariamente por você ao preencher nosso formulário de contato:</p>
+        <ul>
+            <li>Nome completo</li>
+            <li>Nome da empresa</li>
+            <li>Número de telefone</li>
+            <li>Descrição do seu desafio ou necessidade</li>
+        </ul>
+
+        <h2>2. Para que usamos os dados</h2>
+        <p>Os dados coletados são usados exclusivamente para:</p>
+        <ul>
+            <li>Entrar em contato para agendar o diagnóstico solicitado</li>
+            <li>Enviar propostas comerciais relacionadas ao serviço de interesse</li>
+            <li>Comunicações operacionais sobre projetos em andamento</li>
+        </ul>
+        <p>Não utilizamos seus dados para marketing não solicitado, não os vendemos e não os compartilhamos com terceiros sem sua autorização, exceto quando exigido por lei.</p>
+
+        <h2>3. Base legal para o tratamento</h2>
+        <p>O tratamento de dados é fundamentado no legítimo interesse (Art. 7º, IX, LGPD) para responder à solicitação de contato iniciada por você, e no consentimento quando aplicável.</p>
+
+        <h2>4. Por quanto tempo armazenamos os dados</h2>
+        <p>Seus dados são armazenados pelo tempo necessário para atender à finalidade da coleta ou pelo prazo mínimo exigido por obrigação legal. Dados de leads não convertidos são deletados após 12 meses de inatividade.</p>
+
+        <h2>5. Seus direitos</h2>
+        <p>Você tem direito a: confirmar a existência de tratamento, acessar seus dados, corrigir dados incompletos ou desatualizados, solicitar a anonimização ou eliminação, revogar consentimento e se opor ao tratamento. Para exercer qualquer direito, entre em contato pelo e-mail <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a>.</p>
+
+        <h2>6. Cookies</h2>
+        <p>Este site pode utilizar cookies técnicos essenciais para funcionamento e cookies analíticos (Google Analytics) para medir audiência. Você pode desativar os cookies analíticos nas configurações do seu navegador.</p>
+
+        <h2>7. Contato</h2>
+        <p>Dúvidas sobre esta política: <a href="mailto:{{ EMAIL }}">{{ EMAIL }}</a></p>
+
+        <p>{{ AVISO: Este documento é um rascunho inicial. Recomenda-se revisão por advogado especialista em LGPD antes de publicar. }}</p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 UP Inovação Tecnológica. <a href="index.html" style="color: var(--cor-primaria);">← Voltar ao site</a></p>
+        </div>
+    </footer>
+</body>
+</html>
