@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalIcon   = modal?.querySelector('.modal-icon');
     const modalClose  = modal?.querySelector('.modal-close');
     const modalCta    = modal?.querySelector('.modal-cta');
+    const modalInfo   = modal?.querySelector('.modal-info');
 
     if (modalCta) modalCta.addEventListener('click', closeModal);
 
@@ -46,10 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const title   = card.getAttribute('data-title') || card.querySelector('h3')?.innerText || '';
         const desc    = card.getAttribute('data-desc')  || card.querySelector('p')?.innerText  || '';
         const iconEl  = card.querySelector('.servico-icon');
+        const cardBtn = card.querySelector('.card-btn');
 
         if (modalTitle) modalTitle.textContent = title;
         if (modalDesc)  modalDesc.textContent  = desc;
         if (modalIcon && iconEl) modalIcon.innerHTML = iconEl.innerHTML;
+        if (modalInfo && cardBtn) modalInfo.href = cardBtn.href;
 
         lastFocused = document.activeElement || card;
 
@@ -83,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 openModal(card);
             }
         });
+        card.querySelector('.card-btn')?.addEventListener('click', (e) => e.stopPropagation());
     });
 
     if (modalOverlay) modalOverlay.addEventListener('click', closeModal);

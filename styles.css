@@ -362,6 +362,26 @@ body {
     opacity: 0.75;
 }
 
+.card-btn {
+    display: block;
+    margin-top: 18px;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    border: 1px solid var(--cor-primaria);
+    border-radius: 6px;
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.card-btn:hover {
+    background-color: var(--cor-primaria);
+    color: #fff;
+}
+
 /* ── Como trabalhamos ────────────────────────────────────── */
 .processo-lista {
     list-style: none;
@@ -804,6 +824,15 @@ body {
     margin-top: 0;
 }
 
+.modal-actions .card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
 .modal-close {
     position: absolute;
     right: 14px;
@@ -980,6 +1009,61 @@ body {
 .cta-section-buttons .cta-button,
 .cta-section-buttons .cta-button-whatsapp {
     margin-top: 0;
+}
+
+/* ── Logo carousel ───────────────────────────────────────── */
+.parceiros-section {
+    padding: 52px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    overflow: hidden;
+    text-align: center;
+}
+
+.parceiros-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cor-texto-secundario);
+    opacity: 0.55;
+    margin-bottom: 32px;
+}
+
+.parceiros-track-wrapper {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
+}
+
+.parceiros-track {
+    display: flex;
+    align-items: center;
+    gap: 72px;
+    width: max-content;
+    animation: scroll-logos 18s linear infinite;
+}
+
+.parceiros-track:hover {
+    animation-play-state: paused;
+}
+
+.parceiros-logo {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.45;
+    transition: opacity 0.25s ease;
+    flex-shrink: 0;
+}
+
+.parceiros-logo:hover {
+    opacity: 0.9;
+}
+
+@keyframes scroll-logos {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
 /* ── Pricing cards ───────────────────────────────────────── */
