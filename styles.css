@@ -712,7 +712,7 @@ body {
     background: rgba(15, 23, 42, 0.97);
     backdrop-filter: blur(6px);
     z-index: 2000;
-    animation: overlayFade 1s ease forwards;
+    animation: overlayFade 0.6s ease forwards;
 }
 
 .splash-inner {
@@ -724,7 +724,7 @@ body {
     max-width: 60%;
     opacity: 0;
     transform: scale(0.9);
-    animation: logoAnim 1s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+    animation: logoAnim 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
@@ -1087,7 +1087,7 @@ body {
 
 /* ── Logo carousel ───────────────────────────────────────── */
 .parceiros-section {
-    padding: 10px 0;
+    padding: 36px 0;
     border-bottom: 1px solid var(--cor-borda);
     overflow: hidden;
     text-align: center;
@@ -1104,6 +1104,7 @@ body {
 
 .parceiros-track-wrapper {
     overflow: hidden;
+    margin-top: 24px;
     -webkit-mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
     mask-image: linear-gradient(to right, transparent, black 18%, black 82%, transparent);
 }
@@ -1111,9 +1112,8 @@ body {
 .parceiros-track {
     display: flex;
     align-items: center;
-    gap: 80px;
     width: max-content;
-    animation: scroll-logos 35s linear infinite;
+    animation: scroll-logos 50s linear infinite;
 }
 
 .parceiros-track:hover {
@@ -1121,8 +1121,9 @@ body {
 }
 
 .parceiros-logo {
-    height: 600px;
+    height: 90px;
     width: auto;
+    margin-right: 72px;
     object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.45;
@@ -1321,5 +1322,95 @@ body {
     .processo-num {
         font-size: 1.4rem;
         min-width: auto;
+    }
+}
+
+/* ── Header CTA ──────────────────────────────────────────── */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a.nav-cta {
+    margin-left: 28px;
+    padding: 9px 18px;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-menu a.nav-cta:hover {
+    background-color: var(--cor-primaria-hover);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    .nav-menu a:not(.nav-cta) {
+        display: none;
+    }
+    .nav-menu a.nav-cta {
+        margin-left: 0;
+    }
+}
+
+/* ── WhatsApp flutuante ──────────────────────────────────── */
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--cor-whatsapp);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    z-index: 1500;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: var(--cor-whatsapp-hover);
+    transform: scale(1.06);
+}
+
+.whatsapp-float svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* ── Links na nota do formulário ─────────────────────────── */
+.form-nota a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+.form-nota a:hover {
+    text-decoration: underline;
+}
+
+/* ── Movimento reduzido ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    #splash {
+        display: none !important;
+    }
+    #main-content {
+        opacity: 1 !important;
+    }
+    .separator-arrow,
+    .parceiros-track {
+        animation: none;
+    }
+    .whatsapp-float:hover {
+        transform: none;
+    }
+    html {
+        scroll-behavior: auto;
     }
 }

@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const splash = document.getElementById('splash');
     const main = document.getElementById('main-content');
 
     if (splash) {
-        splash.addEventListener('animationend', (e) => {
-            if (e.animationName === 'overlayFade') {
-                splash.parentNode?.removeChild(splash);
-                main?.classList.add('content-visible');
-            }
-        });
+        if (reduceMotion) {
+            // Sem animação: mostra o conteúdo imediatamente
+            splash.parentNode?.removeChild(splash);
+            main?.classList.add('content-visible');
+        } else {
+            splash.addEventListener('animationend', (e) => {
+                if (e.animationName === 'overlayFade') {
+                    splash.parentNode?.removeChild(splash);
+                    main?.classList.add('content-visible');
+                }
+            });
 
-        // Fallback in case animationend doesn't fire
-        setTimeout(() => {
-            if (document.body.contains(splash)) {
-                splash.parentNode.removeChild(splash);
-                main?.classList.add('content-visible');
-            }
-        }, 2400);
+            // Fallback caso o animationend não dispare
+            setTimeout(() => {
+                if (document.body.contains(splash)) {
+                    splash.parentNode.removeChild(splash);
+                    main?.classList.add('content-visible');
+                }
+            }, 900);
+        }
     }
 
     // Smooth scroll for anchor nav links
@@ -94,5 +101,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
+    });
+
+    // ── Formulário de diagnóstico → WhatsApp (+ e-mail alternativo) ──
+    const WHATSAPP_NUM = '5567992641136';
+    const EMAIL_DESTINO = 'contato@upinovacaotec.com.br';
+
+    function getLead(form) {
+        const get = (n) => (form.querySelector(`[name="${n}"]`)?.value || '').trim();
+        return {
+            nome: get('nome'),
+            empresa: get('empresa'),
+            telefone: get('telefone'),
+            desafio: get('desafio')
+        };
+    }
+
+    function leadMessage(d) {
+        return 'Olá! Vim pelo site da UP e gostaria de agendar um diagnóstico gratuito.\n\n'
+            + `Nome: ${d.nome}\n`
+            + `Empresa: ${d.empresa}\n`
+            + `Telefone: ${d.telefone}\n`
+            + `Principal desafio: ${d.desafio}`;
+    }
+
+    document.querySelectorAll('.form-diagnostico').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            const d = getLead(form);
+            const url = `https://wa.me/${WHATSAPP_NUM}?text=` + encodeURIComponent(leadMessage(d));
+            window.trackEvent?.('form_submit_whatsapp', { empresa: d.empresa });
+            window.open(url, '_blank', 'noopener');
+        });
+
+        // Alternativa por e-mail com os mesmos dados preenchidos
+        const mailto = form.querySelector('.form-mailto');
+        if (mailto) {
+            mailto.addEventListener('click', () => {
+                const d = getLead(form);
+                const subject = 'Diagnóstico gratuito — ' + (d.empresa || 'site UP');
+                mailto.href = `mailto:${EMAIL_DESTINO}?subject=${encodeURIComponent(subject)}`
+                    + `&body=${encodeURIComponent(leadMessage(d))}`;
+                window.trackEvent?.('form_submit_email', { empresa: d.empresa });
+            });
+        }
     });
 });

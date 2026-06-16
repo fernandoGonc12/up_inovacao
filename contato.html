@@ -25,7 +25,7 @@
 
     <!-- HERO -->
     <section class="page-hero">
-        <span class="hero-badge">Campo Grande / MS · Centro-Oeste</span>
+        <span class="hero-badge">Campo Grande/MS · Atendemos todo o Brasil</span>
         <h1>Agende um <span class="highlight">diagnóstico gratuito</span></h1>
         <p>60 minutos para entender seu processo, identificar os gargalos e dizer honestamente se a UP pode ajudar — e qual seria o caminho.</p>
     </section>
@@ -37,13 +37,8 @@
                 <h2>Preencha o formulário</h2>
                 <p>Respondemos em até 1 dia útil com uma proposta de horário para a conversa.</p>
             </div>
-            <!--
-                FORMULÁRIO: para ativar o envio de e-mail:
-                1. Crie conta gratuita em formspree.io
-                2. Clique em "+ New Form" e copie o endpoint gerado
-                3. Substitua {{ FORMSPREE_ID }} pelo ID (ex: xpwqabcd)
-            -->
-            <form class="form-diagnostico" action="https://formspree.io/f/{{ FORMSPREE_ID }}" method="POST">
+            <!-- O formulário roteia para o WhatsApp (e e-mail como alternativa) via scripts/index.js -->
+            <form class="form-diagnostico">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="nome">Nome</label>
@@ -62,8 +57,8 @@
                         <textarea id="desafio" name="desafio" rows="4" required placeholder="Descreva em poucas palavras o maior problema que a tecnologia poderia resolver na sua operação..."></textarea>
                     </div>
                 </div>
-                <button type="submit" class="cta-button form-submit">Agendar diagnóstico gratuito</button>
-                <p class="form-nota">Respondemos em até 1 dia útil. Sem compromisso.</p>
+                <button type="submit" class="cta-button form-submit">Agendar pelo WhatsApp</button>
+                <p class="form-nota">Ao enviar, abrimos o WhatsApp com seus dados já preenchidos — ou <a href="mailto:contato@upinovacaotec.com.br" class="form-mailto">envie por e-mail</a>. Resposta em até 1 dia útil, sem compromisso. Seus dados não são compartilhados (<a href="privacidade.html">Política de Privacidade</a>).</p>
             </form>
         </div>
     </section>
@@ -90,7 +85,7 @@
                     </div>
                     <div>
                         <strong>E-mail</strong>
-                        <p><a href="mailto:{{ EMAIL }}" style="color: var(--cor-primaria);">{{ EMAIL }}</a> — respondemos em até 1 dia útil.</p>
+                        <p><a href="mailto:contato@upinovacaotec.com.br" style="color: var(--cor-primaria);">contato@upinovacaotec.com.br</a> — respondemos em até 1 dia útil.</p>
                     </div>
                 </li>
                 <li class="feature-item">
@@ -99,7 +94,7 @@
                     </div>
                     <div>
                         <strong>Localização</strong>
-                        <p>{{ ENDEREÇO }}, Campo Grande/MS.<br>Atendimento presencial com agendamento prévio.</p>
+                        <p>Campo Grande/MS — Brasil.<br>Atendimento remoto em todo o país e presencial com agendamento prévio.</p>
                     </div>
                 </li>
             </ul>
@@ -109,5 +104,6 @@
     <div id="site-footer"></div>
 
     <script src="scripts/components.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
