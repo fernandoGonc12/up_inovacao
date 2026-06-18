@@ -150,4 +150,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // ── Faixa de parceiros: clona os logos para um loop infinito sem falhas ──
+    // Cada metade precisa ser mais larga que a tela; medimos no 'load' (imagens
+    // já com largura) e repetimos o conjunto um número par de vezes (metades
+    // idênticas), garantindo emenda invisível no translateX(-50%).
+    function preencherParceiros() {
+        const track = document.querySelector('.parceiros-track');
+        if (!track || track.dataset.filled) return;
+        const unitHTML = track.innerHTML;
+        const unitWidth = track.scrollWidth || 1;
+        const alvo = Math.max(window.innerWidth, 1920);
+        const unidadesPorMetade = Math.max(2, Math.ceil(alvo / unitWidth));
+        track.innerHTML = unitHTML.repeat(unidadesPorMetade * 2);
+        // Mantém só o primeiro conjunto anunciado a leitores de tela
+        track.querySelectorAll('.parceiros-logo').forEach((img, i) => {
+            if (i >= 4) img.setAttribute('aria-hidden', 'true');
+        });
+        track.dataset.filled = '1';
+    }
+    if (document.querySelector('.parceiros-track')) {
+        // Roda já (imagens em cache têm largura) e de novo no 'load' como
+        // garantia (idempotente via dataset.filled).
+        preencherParceiros();
+        window.addEventListener('load', preencherParceiros);
+    }
 });
